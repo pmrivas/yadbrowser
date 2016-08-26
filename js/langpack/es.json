@@ -1,0 +1,20 @@
+{
+	"token": {
+		"Patient Name":"Paciente",
+		"Pat Id":"Ficha",
+		"Issuer":"Proveedor",
+		"Study Date":"Fecha",
+		"Mod" : "Mod",
+		"Study Description" : "Estudio",
+		"Refereal Doctor" : "Médico Referente",
+		"Search" : "Buscar",
+		"Results" : "Resultados",
+		"Date" : "Fecha",
+		"Patient" : "Paciente",
+		"Description" : "Descripcion",
+		"Series" : "Series",
+		"Ref Doctor" : "Médico",
+		"Today" : "Hoy"
+	}
+
+}

@@ -1,0 +1,10 @@
+{
+	"langRanges":["Hoy","Ayer","7 Días","30 Días","Este Mes","Mes Pasado"],
+	"langMonths": ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+ 	"formatRanges" : {"format": "DD-MM-YYYY HH:mm","separator": " - ","applyLabel": "Ok","cancelLabel": "Cancelar","fromLabel": "Desde",
+        "toLabel": "Hasta","customRangeLabel": "Otros","weekLabel": "S",
+        "daysOfWeek": ["Do","Lu","Ma","Mi","Ju","Vi","Sa"],
+        "monthNames": ["Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre"],
+        "firstDay": 1
+  }
+}

@@ -1,0 +1,77 @@
+<div class="box-body">
+	<div class="row">
+		<form role="form" id="frmQuery">
+			<div class="col-md-3 col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="patName" lang="en">Patient Name<span>:</span></label>
+					<input type="text" class="form-control" id="patName" name="patName">
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3">
+				<div class="form-group">
+					<label class="control-label" for="patId" lang="en">Pat Id<span>:</span></label>
+					<input type="text" class="form-control" id="patId" name="patId">
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-3">
+				<div class="form-group">
+					<label class="control-label" for="patIssuer" lang="en">Issuer<span>:</span></label>
+					<input type="text" class="form-control" id="patIssuer" name="patIssuer">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="stDate" lang="en">Study Date<span>:</span></label>
+					<input type="text" class="form-control" id="stDate" name="stDate">
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-6">
+				<div class="form-group">
+					<label class="control-label" for="modality" lang="en">Mod<span>:</span></label>
+					<select class="form-control" id="modality" name="modality"><option value="">*</option><option value="CR">CR</option><option value="CT">CT</option><option value="DX">DX</option><option value="MG">MG</option><option value="MR">MR</option><option value="PX">PX</option><option value="US">US</option><option value="XA">XA</option></select>
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-4">
+				<div class="form-group">
+					<label class="control-label" for="stDescr" lang="en">Study Description<span>:</span></label>
+					<input type="text" class="form-control" id="stDescr" name="stDescr">
+				</div>
+			</div>
+			<div class="col-md-3 col-sm-4">
+				<div class="form-group">
+					<label class="control-label" for="refDoc" lang="en">Refereal Doctor<span>:</span></label>
+					<input type="text" class="form-control" id="refDoc" name="refDoc">
+				</div>
+			</div>
+			<div class="col-md-2 col-sm-2">
+				<div class="form-group">
+					<label class="control-label" for="btSearch" lang="en">Search<span>:</span></label>
+				  <span class="input-group-btn">
+						<button class="btn btn-primary" type="button" id="btSearch" lang="en">Search</button>
+					</span>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div class="row" id="dvtblResults" style="display:none;">
+    <div class="col-xs-12">
+      <div class="box">
+        <div class="box-header">
+          <h3 class="box-title" lang="en">Results</h3>
+        </div>
+        <div class="box-body">
+					<table id="tblResults" class="table table-bordered table-hover">
+						<thead>
+							<tr><th lang="en">Date</th><th lang="en">Pat Id</th><th lang="en">Patient</th><th lang="en">Mod</th><th lang="en">Description</th><th lang="en">Series</th><th lang="en">Ref Doctor</th></tr>
+						</thead>
+						<tbody>
+						</tbody>
+					</table>
+        </div>
+      </div>
+    </div>
+	</div>
+</div>
+<script type="text/html" id="tplResults">
+<tr><td data-content="stDate"></td><td data-content="patId"></td><td data-content="patName"></td><td data-content="modality"></td><td data-content="stDescr"></td><td data-content="serie"></td><td data-content="refDoc"></td></tr>
+</script>

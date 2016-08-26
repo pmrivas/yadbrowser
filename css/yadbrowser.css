@@ -1,0 +1,9 @@
+#tblResults{
+  margin: 0 auto;
+  width: 100%;
+  clear: both;
+  border-collapse: collapse;
+  table-layout: fixed; 
+  word-wrap:break-word;
+}
+#tblResults td {text-overflow:ellipsis;  overflow:hidden;  white-space:nowrap; }
