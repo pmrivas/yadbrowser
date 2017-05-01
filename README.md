@@ -4,8 +4,16 @@ Yet Another Dicom Browser
 Html + Php + Javascript to browse Dicom Pacs
 
 Template based on: [Admin LTE]https://github.com/almasaeed2010/AdminLTE
+
 Php Api: [yadbapi]https://github.com/pmrivas/yadbapi
 
+Required file: js/yadbconfig.js:
+
+```
+var blockAjax=true; // Ajax Loading (blockui) active..
+var yadbapi="../yadbapi/public/"; //yadbapi Location.
+
+``` 
 
 # yadbrowser
 Yet another Dicom Browser
