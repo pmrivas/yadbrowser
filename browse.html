@@ -62,7 +62,7 @@
         <div class="box-body">
 					<table id="tblResults" class="table table-bordered table-hover">
 						<thead>
-							<tr><th lang="en">Date</th><th lang="en">Pat Id</th><th lang="en">Patient</th><th lang="en">Mod</th><th lang="en">Description</th><th lang="en">Series</th><th lang="en">Ref Doctor</th></tr>
+							<tr><th lang="en">Date</th><th lang="en">Pat Id</th><th>+</th><th lang="en">Patient</th><th lang="en">Mod</th><th lang="en">Description</th><th lang="en">Series</th><th lang="en">Ref Doctor</th></tr>
 						</thead>
 						<tbody>
 						</tbody>
@@ -73,5 +73,8 @@
 	</div>
 </div>
 <script type="text/html" id="tplResults">
-<tr><td data-content="stDate"></td><td data-content="patId"></td><td data-content="patName"></td><td data-content="modality"></td><td data-content="stDescr"></td><td data-content="serie"></td><td data-content="refDoc"></td></tr>
+<tr><td data-content="stDate"></td><td data-content="patId"></td><td class="brMore" data-template-bind='[{"attribute": "stid", "value": "stIUID"}]'><i class="fa fa-folder"></i></td><td data-content="patName"></td><td data-content="modality"></td><td data-content="stDescr"></td><td data-content="serie"></td><td data-content="refDoc"></td></tr>
+</script>
+<script type="text/html" id="tplSeries">
+<tr data-template-bind='[{"attribute": "serid", "value": "serUID"}]'><td data-content="serDate"></td><td data-content="series"></td><td data-content="serDesc"></td><td data-content="modality"></td><td data-content="stDescr"></td><td data-content="instCount"></td></tr>
 </script>

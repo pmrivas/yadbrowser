@@ -7,3 +7,4 @@
   word-wrap:break-word;
 }
 #tblResults td {text-overflow:ellipsis;  overflow:hidden;  white-space:nowrap; }
+.brMore {cursor:pointer;}

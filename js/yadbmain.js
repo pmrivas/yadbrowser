@@ -16,6 +16,7 @@ var FormatRanges={"format": "MM/DD/YYYY HH:mm","separator": " - ","applyLabel": 
   }
 var lang = new Lang();
 lang.dynamic('es', 'js/langpack/es.json');
+var StudyBr;
 $(function() { //Funcion Main..
 	$.ajax({
 		type: "GET",dataType:'json',cache:false, url: yadbapi + "init", success: function(dta) {
@@ -84,10 +85,44 @@ $(document).ajaxStop(function() {
 
 function afterPage(page) {
 	switch (page) {
-		case 'Table':
+		case 'browse':
 			$('#stDate').daterangepicker({timePicker: true,  "parentEl": "#page-wrapper", timePickerIncrement: 30, ranges: DateRanges, locale: FormatRanges});
 			$('#btSearch').click(function (e) {
 				return dosearch();
+			});
+			$('#tblResults').on('click','td.brMore',function () {
+				var tr = $(this).closest('tr');
+        var row = StudyBr.row( tr );
+        if (row.child.isShown()) {
+        	row.child.hide();
+        } else {
+        	StudyBr.rows().every(function () {
+        			if (this.child.isShown()) this.child.hide();
+        	});
+        	if (typeof row.child() !== "undefined") {
+        		row.child.show();
+        	} else {
+	        	$.ajax({type: "POST",dataType:'json',cache:false,data:{stIUID:$(this).attr('stid')}, url: yadbapi + "study", success: function(dta) {
+	        		var htmlRow='<table width="100%" class="table table-bordered table-hover"><thead><tr><th lang="en" colspan="3" width="40%">Images</th><th lang="en">Date</th><th lang="en">Series</th><th>Descr</th><th>Imagenes</th></tr></thead><tbody>';
+	        		$(dta.res).each(function (i,k) {
+	        			htmlRow+='<tr><td><img width="90px" src="' + yadbapi + "wado/" + k.first + '/90"></td><td><img width="90px" src="' + yadbapi + "wado/" + k.middle + '/90"></td><td><img width="90px" src="' + yadbapi + "wado/" + k.last + '/90"></td>';
+	        			htmlRow+="<td>" + k.serDate + "</td><td>" + k.seriesNumber + "</td><td>" + k.serDesc + "</td><td>" + k.instCount + "</td></tr>";
+	        		});
+	        		row.child(htmlRow).show();
+/*
+	        		var htmlSeries='<table width="100%" class="table table-bordered table-hover"><thead><tr><th lang="en">Date</th><th lang="en">Series</th><th>Descr</th><th>Imagenes</th></tr></thead><tbody>';
+	        		var htmlImages='<table width="100%" class="table table-hover">';
+	        		$(dta.res).each(function (i,k) {
+	        			htmlImages+='<tr><th colspan="3">' + k.serDesc + '</th></tr><tr><td><img width="90px" src="' + yadbapi + "wado/" + k.first + '/90"></td><td><img width="90px" src="' + yadbapi + "wado/" + k.middle + '/90"></td><td><img width="90px" src="' + yadbapi + "wado/" + k.last + '/90"></td></tr>';
+	        			htmlSeries+="<tr><td>" + k.serDate + "</td><td>" + k.seriesNumber + "</td><td>" + k.serDesc + "</td><td>" + k.instCount + "</td></tr>";
+	        		});
+	        		htmlSeries+="</tbody></table>";
+	        		htmlImages+="</table>";
+	        		row.child('<table width="100%" border="0"><tr><td valign="top" width="40%">' + htmlImages + '</td><td valign="top" width="60%">' + htmlSeries + '</td></tr>').show();
+*/
+	        	}});
+	        }
+        }
 			});
 		break;
 	}
@@ -100,11 +135,12 @@ function dosearch() {
 			$('#tblResults tbody').html('');
 	    $("#tblResults").DataTable().destroy();
 			$("#tblResults tbody").loadTemplate('#tplResults',dta.res);
-			$("#tblResults").DataTable( {"bAutoWidth": false,
+			StudyBr=$("#tblResults").DataTable( {"bAutoWidth": false,
   "aoColumns": [
     { "sWidth": "7%" },
     { "sWidth": "5%" },
-    { "sWidth": "35%" },
+    { "sWidth": "3%" },
+    { "sWidth": "32%" },
     { "sWidth": "5%" },
     { "sWidth": "20%" },
     { "sWidth": "5%" },
